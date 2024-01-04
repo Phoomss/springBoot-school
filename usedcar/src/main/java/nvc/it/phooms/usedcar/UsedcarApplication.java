@@ -34,20 +34,20 @@ public class UsedcarApplication implements CommandLineRunner {
 		Owner owner1 = new Owner("John", "Jhonson");
 		Owner owner2 = new Owner("Mary", "Robinson");
 		owerRepository.saveAll(Arrays.asList(owner1, owner2));
-		carRepository.save(new Car("Ford", "Mustang", "Red", "ADF-1121", 2023, 59000,owner1 ));
-		carRepository.save(new Car("Nissan", "Leaf", "White", "SSJ-3002", 2020, 29000,owner2 ));
-		carRepository.save(new Car("Toyota", "Prius", "Silver", "KKO-0212", 2022, 39000,owner1 ));
+		carRepository.save(new Car("Ford", "Mustang", "Red", "ADF-1121", 2023, 59000, owner1));
+		carRepository.save(new Car("Nissan", "Leaf", "White", "SSJ-3002", 2020, 29000, owner2));
+		carRepository.save(new Car("Toyota", "Prius", "Silver", "KKO-0212", 2022, 39000, owner1));
 
 		// Fetch all cars and log to console
 		for (Car car : carRepository.findAll()) {
 			Logger.info("brand: {}, model: {}",
 					car.getBrand(), car.getModel());
 		}
-		 
-		 // Fetch all owners and log to console
-for (Owner owner : owerRepository .findAll()) {
-	Logger.info("FirstName: {}, LastName: {}",
-	owner.getFristName (), owner.getLastName());
-	}
+
+		// Fetch all owners and log to console
+		for (Owner owner : owerRepository.findAll()) {
+			Logger.info("FirstName: {}, LastName: {}",
+					owner.getFristName(), owner.getLastName());
+		}
 	}
 }
