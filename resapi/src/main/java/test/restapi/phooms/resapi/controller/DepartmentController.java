@@ -22,7 +22,7 @@ public class DepartmentController {
     private DepartmentService departmentService;
 
     @GetMapping()
-    public Iterable<Department> getAllDepartments() {
+    public ResponseEntity<?> getAllDepartments() {
         return departmentService.getAllDepartments();
     }
 

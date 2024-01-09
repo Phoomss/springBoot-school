@@ -17,8 +17,17 @@ public class DepartmentService {
     @Autowired
     private DepartmentRepository departmentRepository;
 
-    public Iterable<Department> getAllDepartments() {
-        return departmentRepository.findAll();
+    public ResponseEntity<?> getAllDepartments() {
+        Optional<Iterable<Department>> dOptional = Optional.ofNullable(departmentRepository.findAll());
+
+        if (dOptional.isPresent() && dOptional.get().iterator().hasNext()) {
+            Iterable<Department> departments = dOptional.get();
+            return ResponseEntity.ok(departments);
+        } else {
+            Map<String, String> resMap = new HashMap<>();
+            resMap.put("message", "No department found");
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).body(resMap);
+        }
     }
 
     public ResponseEntity<?> getDepartmentById(int id) {

@@ -27,10 +27,10 @@ public class Educat_level {
 
     private String name;
 
-    @ManyToOne()
-    @JoinColumn(name = "deparment_id")
+    @ManyToOne
+    @JoinColumn(name = "department_id")  // Make sure this matches the actual column name in the Department entity
     private Department department;
-
+        
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "educat_level")
     private List<Student> students;

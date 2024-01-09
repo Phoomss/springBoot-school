@@ -1,5 +1,6 @@
 package test.restapi.phooms.resapi.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,7 +22,7 @@ import lombok.Setter;
 public class Department {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
     private String name;
 
@@ -35,6 +36,12 @@ public class Department {
 
     public Department(String name) {
         this.name = name;
+       
     }
+
+    public Department(int id) {
+        this.id = id;
+    }
+
 
 }
