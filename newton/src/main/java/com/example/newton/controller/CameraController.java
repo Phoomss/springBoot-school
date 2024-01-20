@@ -36,7 +36,7 @@ public class CameraController {
 
     @GetMapping("/location/{location}")
     public List<Camera> getCamerasByLocation(@PathVariable String location) {
-        return cameraRepository.findByLocation(location);
+        return cameraRepository.findByLocationContaining(location);
     }
 
     @PostMapping
